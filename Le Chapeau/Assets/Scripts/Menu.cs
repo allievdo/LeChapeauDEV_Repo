@@ -40,16 +40,19 @@ public class Menu : MonoBehaviourPunCallbacks
         screen.SetActive(true);
     }
 
+    // called when the "Create Room" button is pressed
     public void OnCreateRoomButton (TMP_InputField roomNameInput)
     {
         NetworkManager.instance.CreateRoom(roomNameInput.text);
     }
 
+    // called when the "Join Room" button is pressed
     public void OnJoinRoomButton (TMP_InputField roomNameInput)
     {
         NetworkManager.instance.JoinRoom(roomNameInput.text);
     }
 
+    // called when the player name input field has been updated
     public void OnPlayerNameUpdate (TMP_InputField playerNameInput)
     {
         PhotonNetwork.NickName = playerNameInput.text;
@@ -64,11 +67,11 @@ public class Menu : MonoBehaviourPunCallbacks
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
-        updateLobbyUI();
+        UpdateLobbyUI();
     }
 
     [PunRPC]
-    public void updateLobbyUI()
+    public void UpdateLobbyUI ()
     {
         playerListText.text = "";
 
