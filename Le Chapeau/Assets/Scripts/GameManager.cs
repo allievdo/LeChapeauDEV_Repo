@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     void Start ()
     {
         players = new PlayerController[PhotonNetwork.PlayerList.Length];
-        photonView.RPC("ImIngame", RpcTarget.AllBuffered);
+        photonView.RPC("ImInGame", RpcTarget.AllBuffered);
     }
 
     [PunRPC]
